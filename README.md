@@ -17,7 +17,7 @@ Usage
   ```
   apt install ipmitool -yy
   ```
-- Define the following setting in your zabbix-proxy/proxy
+- Define the following setting in your zabbix-server/proxy
   ```
   ExternalScripts=/etc/zabbix/externalscripts
   ```
