@@ -1,0 +1,96 @@
+#!/usr/bin/env python3
+
+import os
+import re
+import sys
+import json
+import datetime
+import subprocess
+import collections
+
+if len(sys.argv) < 5:
+    print("ipmi_parser <HOST> <USER> <PASS> show")
+    sys.exit(1)
+
+ipmi_host = sys.argv[1]
+ipmi_user = sys.argv[2]
+ipmi_pass = sys.argv[3]
+task = sys.argv[4]
+
+
+CACHE_FILE = '/tmp/supermicro_ipmi_sensors_cache_%s_%s' % (ipmi_host, os.getuid())
+
+cache_valid = False 
+try:  
+    statinfo = os.stat(CACHE_FILE)
+except FileNotFoundError:
+    pass
+else:
+    if datetime.datetime.now().timestamp() - statinfo.st_mtime < 60:
+        cache_valid = True
+        with open(CACHE_FILE, 'r') as fh:
+            result = json.loads(fh.read())
+
+
+if not cache_valid:
+  cmd = ['/usr/bin/ipmitool', '-H', ipmi_host, '-U', ipmi_user, '-P', ipmi_pass, 'sensor', 'list']
+  proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+
+  try:
+     stdout, stderr = proc.communicate(timeout=30)
+  except subprocess.TimeoutExpired:
+     proc.kill()
+     stdout, stderr = proc.communicate()
+  else:
+     lines = stdout.decode('utf-8').split('\n')
+
+     result = dict()
+     for line in lines:
+        vals = [x.strip() for x in line.split('|')]
+        if len(vals) < 10:
+          continue
+
+        result[vals.pop(0)] = dict(last=vals[0],
+                          unit=vals[1],
+                          status=vals[2],
+                          low_critical=vals[3],
+                          low_non_recoverable=vals[4],
+                          low_non_critical=vals[5],
+                          up_non_critical=vals[6],
+                          up_critical=vals[7],
+                          up_non_recoverable=vals[8])
+
+        with open(CACHE_FILE, 'w') as fh:
+            fh.write(json.dumps(result))
+
+if task == "show":     
+  print(json.dumps(result, indent=2,))
+elif task == "get":
+  get = sys.argv[5]
+  print(result[get]["unit"])
+elif task == "discover":
+  discovery_data = []
+  match = sys.argv[5]
+  for item_name, item_data in result.items():
+
+    if not(re.match(match, item_name)):
+      continue
+
+    if item_data['unit'] == "na":
+      continue
+
+    item = collections.OrderedDict()
+    item["{#ITEM}"] = item_name
+    for key, value in item_data.items():
+       if key in ['unit', 'last']:
+          continue
+       item["{#%s}" % key.upper()] = value
+    discovery_data.append(item)
+
+  discovery_data = { 'data': discovery_data }
+  print(json.dumps(discovery_data, indent=2))
+
+
+# vim: ai et ts=2 shiftwidth=2 expandtab
+
+

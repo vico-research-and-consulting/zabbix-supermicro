@@ -1,0 +1,83 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import json
+import datetime
+import subprocess
+import re
+
+
+if len(sys.argv) < 5:
+    print("ipmi_parser <HOST> <USER> <PASS> <KEY>")
+    sys.exit(1)
+
+
+ipmi_host = sys.argv[1]
+ipmi_user = sys.argv[2]
+ipmi_pass = sys.argv[3]
+ipmi_key = sys.argv[4]
+
+CACHE_FILE = '/tmp/supermicro_ipmi_cache_%s_%s' % (ipmi_host, os.getuid())
+
+cache_valid = False
+try:
+    statinfo = os.stat(CACHE_FILE)
+except FileNotFoundError:
+    pass
+else:
+    if datetime.datetime.now().timestamp() - statinfo.st_mtime < 60:
+        cache_valid = True
+        with open(CACHE_FILE, 'r') as fh:
+            result = json.loads(fh.read())
+
+if not cache_valid:
+    result = dict()
+
+    cmd = ['/usr/bin/ipmitool', '-H', ipmi_host, '-U', ipmi_user, '-P', ipmi_pass, 'dcmi', 'power', 'reading']
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+
+    try:
+        stdout, stderr = proc.communicate(timeout=30)
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        stdout, stderr = proc.communicate()
+    else:
+        ret = stdout.decode('utf-8').split('\n')
+
+        for line in ret:
+           m = re.match("^\s*(.+):\s+(\d+) Watts.*$", line)
+           if m: 
+                key = m.group(1)
+                val = m.group(2)
+                result[key] = val
+
+
+    cmd = ['/usr/bin/ipmitool', '-H', ipmi_host, '-U', ipmi_user, '-P', ipmi_pass, 'chassis', 'status']
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+
+    try:
+        stdout, stderr = proc.communicate(timeout=30)
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        stdout, stderr = proc.communicate()
+    else:
+        ret = stdout.decode('utf-8').split('\n')
+
+        for line in ret:
+            if ':' in line:            
+                key, val = line.split(':')
+                result[key.strip()] = val.strip()
+
+
+    with open(CACHE_FILE, 'w') as fh:
+       fh.write(json.dumps(result))
+
+if ipmi_key == "all":
+   for key,value in result.items():
+      print("%-50s '%s'" % ("'"+key+"'",value))
+elif ipmi_key in result:
+    print(result[ipmi_key])
+else:
+    print('key %s not found in result' % ipmi_key)
+
