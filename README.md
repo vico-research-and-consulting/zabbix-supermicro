@@ -34,7 +34,7 @@ Usage
     - {$IPMI_PASS}
 
 Technical details
-------------------
+=================
 
 - Scripts cache values in ```/tmp/supermicro_ipmi_*_<ipmi_HOST>_<numeric uid>``` to prevent a high number of ipmitool executions for one minute
 - Tool can be debugged using commands like this:
@@ -47,3 +47,14 @@ Technical details
   ./supermicro_ipmi <hostname or ip> "IPMIUSER" "IPMIPASS" 'Power Overload'
   ```
 
+Authors
+=======
+
+- Amin Dandache <amin.dandache@vico-research.com>
+- Marc Schoechlin <marc.schoechlin@vico-research.com>
+
+
+Licence
+=======
+
+see "[LICENSE](./LICENSE)" file
