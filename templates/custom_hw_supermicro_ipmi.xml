@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2019-07-15T09:13:25Z</date>
+    <date>2019-07-17T11:10:06Z</date>
     <groups>
         <group>
             <name>Custom</name>

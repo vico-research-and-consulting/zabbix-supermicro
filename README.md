@@ -10,6 +10,14 @@ This project enhances zabbix with a externalscript which provides the following 
 
 A documentation of the monitoring capabilities can be reviewed by this [html-documentation](http://htmlpreview.github.io/?https://github.com/vico-research-and-consulting/zabbix-supermicro/blob/master/templates/documentation/custom_hw_supermicro_ipmi.html).
 
+Basically this script monitors the results of the following comands:
+
+```
+ipmitool -H <ipmi_host> -U <ipmi_user> -P <ipmi_pass> dcmi power reading
+ipmitool -H <ipmi_host> -U <ipmi_user> -P <ipmi_pass> chassis status
+ipmitoo l-H <ipmi_host> -U <ipmi_user> -P <ipmi_pass> sensor list
+```
+
 Usage
 =====
 
