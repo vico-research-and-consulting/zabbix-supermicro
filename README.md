@@ -15,7 +15,7 @@ Basically this script monitors the results of the following comands:
 ```
 ipmitool -H <ipmi_host> -U <ipmi_user> -P <ipmi_pass> dcmi power reading
 ipmitool -H <ipmi_host> -U <ipmi_user> -P <ipmi_pass> chassis status
-ipmitoo l-H <ipmi_host> -U <ipmi_user> -P <ipmi_pass> sensor list
+ipmitool -H <ipmi_host> -U <ipmi_user> -P <ipmi_pass> sensor list
 ```
 
 Usage
