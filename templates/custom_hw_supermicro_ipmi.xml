@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2019-07-17T11:10:06Z</date>
+    <date>2019-07-31T06:34:43Z</date>
     <groups>
         <group>
             <name>Custom</name>
@@ -25,19 +25,19 @@
             </groups>
             <applications>
                 <application>
-                    <name>Supermciro CPUs</name>
+                    <name>HW - Supermciro - CPUs</name>
                 </application>
                 <application>
-                    <name>Supermciro DIMMS</name>
+                    <name>HW - Supermciro - DIMMS</name>
                 </application>
                 <application>
-                    <name>Supermicro FANs</name>
+                    <name>HW - Supermciro - FANs</name>
                 </application>
                 <application>
-                    <name>Supermicro General</name>
+                    <name>HW - Supermciro - General</name>
                 </application>
                 <application>
-                    <name>Supermicro MIsc</name>
+                    <name>HW - Supermciro - MIsc</name>
                 </application>
             </applications>
             <items>
@@ -73,7 +73,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -114,7 +114,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -155,7 +155,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -196,7 +196,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -237,7 +237,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -278,7 +278,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -319,7 +319,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -360,7 +360,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -401,7 +401,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -442,7 +442,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -483,7 +483,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -524,7 +524,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -565,7 +565,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Supermicro General</name>
+                            <name>HW - Supermciro - General</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -640,7 +640,7 @@
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>Supermicro MIsc</name>
+                                    <name>HW - Supermciro - MIsc</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -684,7 +684,7 @@
                             <show_3d>0</show_3d>
                             <percent_left>0.0000</percent_left>
                             <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
+                            <ymin_type_1>1</ymin_type_1>
                             <ymax_type_1>0</ymax_type_1>
                             <ymin_item_1>0</ymin_item_1>
                             <ymax_item_1>0</ymax_item_1>
@@ -771,7 +771,7 @@
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>Supermciro DIMMS</name>
+                                    <name>HW - Supermciro - DIMMS</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -815,7 +815,7 @@
                             <show_3d>0</show_3d>
                             <percent_left>0.0000</percent_left>
                             <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
+                            <ymin_type_1>1</ymin_type_1>
                             <ymax_type_1>0</ymax_type_1>
                             <ymin_item_1>0</ymin_item_1>
                             <ymax_item_1>0</ymax_item_1>
@@ -902,7 +902,7 @@
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>Supermciro CPUs</name>
+                                    <name>HW - Supermciro - CPUs</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -1033,7 +1033,7 @@
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>Supermicro FANs</name>
+                                    <name>HW - Supermciro - FANs</name>
                                 </application>
                             </applications>
                             <valuemap/>
@@ -1120,7 +1120,7 @@
             <screens>
                 <screen>
                     <name>Supermciro CPUs</name>
-                    <hsize>2</hsize>
+                    <hsize>1</hsize>
                     <vsize>1</vsize>
                     <screen_items>
                         <screen_item>
@@ -1143,28 +1143,6 @@
                                 <host>Custom - HW - Supermicro IPMI</host>
                             </resource>
                             <max_columns>1</max_columns>
-                            <application/>
-                        </screen_item>
-                        <screen_item>
-                            <resourcetype>0</resourcetype>
-                            <width>500</width>
-                            <height>100</height>
-                            <x>1</x>
-                            <y>0</y>
-                            <colspan>1</colspan>
-                            <rowspan>1</rowspan>
-                            <elements>0</elements>
-                            <valign>0</valign>
-                            <halign>0</halign>
-                            <style>0</style>
-                            <url/>
-                            <dynamic>0</dynamic>
-                            <sort_triggers>0</sort_triggers>
-                            <resource>
-                                <name>Power Usage</name>
-                                <host>Custom - HW - Supermicro IPMI</host>
-                            </resource>
-                            <max_columns>3</max_columns>
                             <application/>
                         </screen_item>
                     </screen_items>
