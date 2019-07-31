@@ -8,6 +8,11 @@ import datetime
 import subprocess
 import collections
 
+
+def replace_value(value):
+    value = re.sub("degrees C", "°C", value)
+    return value
+
 if len(sys.argv) < 5:
     print("ipmi_parser <HOST> <USER> <PASS> show")
     sys.exit(1)
@@ -84,7 +89,7 @@ elif task == "discover":
     for key, value in item_data.items():
        if key in ['unit', 'last']:
           continue
-       item["{#%s}" % key.upper()] = value
+       item["{#%s}" % key.upper()] = replace_value(value)
     discovery_data.append(item)
 
   discovery_data = { 'data': discovery_data }
