@@ -14,7 +14,7 @@ def replace_value(value):
     return value
 
 if len(sys.argv) < 5:
-    print("ipmi_parser <HOST> <USER> <PASS> show")
+    print("ipmi_parser <HOST> <USER> <PASS> show|discover|get <item>")
     sys.exit(1)
 
 ipmi_host = sys.argv[1]
