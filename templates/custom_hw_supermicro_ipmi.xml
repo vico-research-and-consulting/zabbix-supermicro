@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>3.4</version>
-    <date>2019-07-31T06:34:43Z</date>
+    <date>2019-09-10T13:54:29Z</date>
     <groups>
         <group>
             <name>Custom</name>
@@ -1119,7 +1119,7 @@
             <templates/>
             <screens>
                 <screen>
-                    <name>Supermciro CPUs</name>
+                    <name>Custom - HW - Supermicro - CPUs</name>
                     <hsize>1</hsize>
                     <vsize>1</vsize>
                     <screen_items>
@@ -1148,7 +1148,7 @@
                     </screen_items>
                 </screen>
                 <screen>
-                    <name>Supermciro DIMMS</name>
+                    <name>Custom - HW - Supermicro - DIMMS</name>
                     <hsize>1</hsize>
                     <vsize>1</vsize>
                     <screen_items>
@@ -1177,7 +1177,7 @@
                     </screen_items>
                 </screen>
                 <screen>
-                    <name>Supermciro FANs</name>
+                    <name>Custom - HW - Supermicro -  FANs</name>
                     <hsize>1</hsize>
                     <vsize>1</vsize>
                     <screen_items>
@@ -1206,7 +1206,7 @@
                     </screen_items>
                 </screen>
                 <screen>
-                    <name>Supermciro General</name>
+                    <name>Custom - HW - Supermicro - General</name>
                     <hsize>1</hsize>
                     <vsize>1</vsize>
                     <screen_items>
@@ -1235,7 +1235,7 @@
                     </screen_items>
                 </screen>
                 <screen>
-                    <name>Supermicro Misc</name>
+                    <name>Custom - HW - Supermicro - Misc</name>
                     <hsize>1</hsize>
                     <vsize>1</vsize>
                     <screen_items>
