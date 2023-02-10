@@ -33,8 +33,11 @@ except FileNotFoundError:
 else:
     if datetime.datetime.now().timestamp() - statinfo.st_mtime < 60:
         cache_valid = True
-        with open(CACHE_FILE, 'r') as fh:
-            result = json.loads(fh.read())
+        try:
+          with open(CACHE_FILE, 'r') as fh:
+              result = json.loads(fh.read())
+        except Exception:
+          cache_valid = False
 
 
 if not cache_valid:
